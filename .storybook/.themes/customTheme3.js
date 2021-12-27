@@ -1,7 +1,5 @@
-import { createMuiTheme } from '@material-ui/core/styles';
-import green from '@material-ui/core/colors/green';
-import purple from '@material-ui/core/colors/purple';
-import blue from '@material-ui/core/colors/blue';
+import { createTheme, adaptV4Theme } from '@mui/material/styles';
+import { green, purple, blue } from '@mui/material/colors';
 
 const darkGreen = green[900];
 const accentPurple = purple.A200;
@@ -22,4 +20,4 @@ export const overridings = {
   themeName: 'Pale Blue Theme'
 };
 
-export default createMuiTheme(overridings);
+export default createTheme(adaptV4Theme(overridings));

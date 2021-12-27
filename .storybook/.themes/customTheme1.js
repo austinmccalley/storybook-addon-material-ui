@@ -1,9 +1,5 @@
-import { createMuiTheme } from '@material-ui/core/styles';
-import green from '@material-ui/core/colors/green';
-import purple from '@material-ui/core/colors/purple';
-import blue from '@material-ui/core/colors/blue';
-import red from '@material-ui/core/colors/red';
-import yellow from '@material-ui/core/colors/yellow';
+import { createTheme, adaptV4Theme } from '@mui/material/styles';
+import { green, purple, blue, red, yellow } from '@mui/material/colors';
 
 const primaryGreen = green[500];
 const accentGreen = green.A200;
@@ -30,4 +26,4 @@ export const overridings = {
   themeName: 'Custom Light Theme'
 };
 
-export default createMuiTheme(overridings);
+export default createTheme(adaptV4Theme(overridings));

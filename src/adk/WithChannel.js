@@ -12,7 +12,7 @@ const withChannel = ({
   initData,
   panel
 }) => WrappedComponent =>
-  class extends React.Component {
+  (class extends React.Component {
     static displayName = `WithChannel(${getDisplayName(WrappedComponent)})`;
 
     state = {
@@ -54,6 +54,6 @@ const withChannel = ({
         />
       );
     }
-  };
+  });
 
 export default withChannel;
