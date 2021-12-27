@@ -34,25 +34,8 @@ export function muiTheme(themes) {
     'iframe'
   );
 
-  let themesInitList = [lightBaseTheme, darkBaseTheme];
-
-  if (!themes) {
-    themesInitList = themesInitList.map(theme => ({
-      ...theme,
-      themeName: theme.themeName,
-    }));
-  }
-  
-  if(Array.isArray(themes)) 
-    themesInitList = [...themes]
-  else {
-    themesInitList = [themes]
-  }
-  
-  }
-
   store.onConnected(() =>
-    store.sendInit({ themes: themesInitList, themeInd: 0 })
+    store.sendInit({ themes, themeInd: 0 })
   );
 
   return (story) => {
@@ -60,7 +43,7 @@ export function muiTheme(themes) {
     return (
       <MuiDecorator
         story={storyItem}
-        initData={{ themes: themesInitList, themeInd: 0 }}
+        initData={{ themes, themeInd: 0 }}
       />
     );
   };
