@@ -1,14 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import createPalette from '@material-ui/core/styles/createPalette';
-import purple from '@material-ui/core/colors/purple';
-import green from '@material-ui/core/colors/green';
-import red from '@material-ui/core/colors/red';
+import { MuiThemeProvider, StyledEngineProvider, createMuiTheme, adaptV4Theme } from '@mui/material/styles';
 
-import { EVENT_ID_DATA, EVENT_ID_BACK } from '../config';
-import { lightTheme } from '../.themes';
 // future: [x] remove ThemeToolbar
 // import ThemeSideBar from '../components/ThemeSideBar';
 // const stringify = require('json-stringify-safe');
@@ -132,12 +126,14 @@ export default class MuiTheme extends React.Component {
   }
 
   render() {
-    const theme = createMuiTheme(this.state.currentTheme);
+    const theme = createMuiTheme(adaptV4Theme(this.state.currentTheme));
 
     return (
-      <MuiThemeProvider theme={theme}>
-        <div>{this.props.story}</div>
-      </MuiThemeProvider>
+      <StyledEngineProvider injectFirst>
+        <MuiThemeProvider theme={theme}>
+          <div>{this.props.story}</div>
+        </MuiThemeProvider>
+      </StyledEngineProvider>
     );
   }
 }
